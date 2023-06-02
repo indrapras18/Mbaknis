@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="216" pageHeight="288" columnWidth="176" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ebc25378-3b75-4844-a602-afbf9ec59686">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="14"/>
+	<parameter name="kode" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT transaksi.`id_kr`,transaksi.`nama_pelanggan`,transaksi.`tanggal_keluar`,transaksi.`pembayaran`,detail_transaksi.`jumlah_beli`,detail_transaksi.`nama_produk`
+FROM transaksi,detail_transaksi
+WHERE transaksi.`id_kr` = detail_transaksi.`id_kr` AND detail_transaksi.`id_detail_transaksi` = $P{kode}]]>
+	</queryString>
+	<field name="id_kr" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_pelanggan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tanggal_keluar" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pembayaran" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jumlah_beli" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_produk" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="77" splitType="Stretch">
+			<staticText>
+				<reportElement x="63" y="0" width="50" height="20" uuid="b934297b-d4d3-4dfa-857c-760316e44739"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[MBAKNIS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="44" width="100" height="10" uuid="e8d2bb78-f3cf-4578-95cc-9181a39ed80b"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Lumbung,Badean, Kec.Bondowoso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="54" width="100" height="10" uuid="77ebe32c-3ee2-40d6-af09-6f62ae229e3a"/>
+				<textElement textAlignment="Center">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Kabupaten Bondowoso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="33" width="100" height="11" uuid="38c3c025-dc49-4c1f-998b-380e5ae1ea5d"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Jl.Dr. Cipto Mangun Kusumo No.9,]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="24" width="176" height="1" uuid="67642727-fad2-4260-9009-0f10547df906"/>
+			</line>
+			<line>
+				<reportElement x="0" y="73" width="176" height="1" uuid="0d9bbb21-b9dd-48be-8f30-977e0bcd6d89"/>
+			</line>
+		</band>
+	</title>
+	<columnFooter>
+		<band height="151" splitType="Stretch">
+			<textField>
+				<reportElement x="102" y="79" width="51" height="9" uuid="3f240d33-7b4a-4879-85bb-11e12a3ee2d4"/>
+				<textElement>
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pembayaran}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="102" y="6" width="46" height="10" uuid="9fcf0571-7f86-48af-8c25-a1782f15194c"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_kr}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="102" y="25" width="71" height="10" uuid="4966857a-3262-49c2-a440-5c7d292e3c70"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_pelanggan}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="11" y="25" width="63" height="10" uuid="2a56267d-c519-46eb-bd16-de062c91b3b8"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Nama Pelanggan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="45" width="63" height="10" uuid="efa6eba0-3ff1-4e80-bd6b-bbf993f77ef1"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Nama Produk]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="102" y="45" width="63" height="10" uuid="b531b83a-f780-4fba-81d1-5034757f02aa"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_produk}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="12" y="62" width="62" height="10" uuid="635f8cb1-33c8-44c6-9ad3-053381c859aa"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Jumlah Beli]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="102" y="62" width="47" height="10" uuid="2e976c96-7e00-43d1-81ad-1105c0ff56ab"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jumlah_beli}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="112" y="115" width="53" height="10" uuid="05c3fed0-33e8-46cb-8eac-2f0a9e87c5e1"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tanggal_keluar}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="11" y="79" width="63" height="9" uuid="7617c4cf-32f4-4a2f-a012-eeb51f462f04"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Pembayaran]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="6" width="63" height="10" uuid="6ebf8b97-f10c-4f3b-9019-b76d382fa59b"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[ID Transaksi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="106" y="102" width="63" height="9" uuid="44ffc29e-cf13-483d-b904-43fe09e6de96"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Tanggal Pembayaran]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+</jasperReport>
